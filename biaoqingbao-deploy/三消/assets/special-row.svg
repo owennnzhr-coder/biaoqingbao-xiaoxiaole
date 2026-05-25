@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="rowFill" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffe86e"/>
+      <stop offset="1" stop-color="#ff9a3c"/>
+    </linearGradient>
+  </defs>
+  <path d="M12 18c0-5 4-9 9-9h22c5 0 9 4 9 9v28c0 5-4 9-9 9H21c-5 0-9-4-9-9z" fill="#4334bf"/>
+  <path d="M15 20c0-4 3-7 7-7h20c4 0 7 3 7 7v24c0 4-3 7-7 7H22c-4 0-7-3-7-7z" fill="url(#rowFill)"/>
+  <path d="M8 32l11-9v6h11v6H19v6z" fill="#ffffff"/>
+  <path d="M56 32l-11 9v-6H34v-6h11v-6z" fill="#ffffff"/>
+  <rect x="22" y="29" width="20" height="6" rx="3" fill="#4334bf"/>
+  <circle cx="20" cy="17" r="4" fill="#fff4ae"/>
+  <circle cx="45" cy="47" r="3" fill="#fff4ae"/>
+</svg>
