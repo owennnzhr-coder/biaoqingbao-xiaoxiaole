@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>表情包消消乐</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <section class="hud-main">
+        <div class="hud-pill timer-card">
+          <span class="hero-label">倒计时</span>
+          <strong class="hero-value timer-text" id="timerText">60</strong>
+        </div>
+        <div class="hud-score">
+          <span class="hero-label">总分</span>
+          <strong class="hero-score-value" id="scoreText">0</strong>
+          <div class="hero-records">
+            <span>最高分 <b id="bestScoreText">0</b></span>
+            <span>最远阶段 <b id="bestStageText">1</b></span>
+          </div>
+        </div>
+        <div class="hud-pill score-card">
+          <span class="hero-label">阶段</span>
+          <strong class="hero-stage-value" id="stageText">第 1 阶段</strong>
+        </div>
+      </section>
+
+      <section class="hud-progress">
+        <div class="panel-heading">
+          <strong id="progressText">0 / 800</strong>
+          <span class="hud-target">目标 <b id="targetText">800</b></span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <p class="panel-note" id="stageNotice">完成后立即加时并进入下一阶段。</p>
+      </section>
+    </header>
+
+    <main class="layout mobile-layout">
+      <section class="board-panel">
+        <div class="board-frame">
+          <div class="board-glow"></div>
+          <div class="playfield-wrap" id="playfieldWrap">
+            <div class="stage-toast" id="stageToast">
+              <span class="stage-toast-kicker" id="stageToastKicker">MATCH READY</span>
+              <strong class="stage-toast-title" id="stageToastTitle">等待连击</strong>
+              <span class="stage-toast-copy" id="stageToastCopy">滑动相邻元素完成 3 消，冲击更高阶段。</span>
+            </div>
+            <div class="board" id="board"></div>
+            <section class="footer-panel">
+              <div class="items-panel">
+                <button class="skill-button tool-button" id="toolBreaker" type="button">
+                  <span class="tool-icon tool-icon-breaker" aria-hidden="true">
+                    <span class="tool-glyph tool-glyph-breaker">✦</span>
+                  </span>
+                  <span class="skill-copy">清空全部干扰块</span>
+                  <span class="tool-count" id="toolBreakerCount">2</span>
+                </button>
+                <button class="skill-button tool-button" id="toolShuffle" type="button">
+                  <span class="tool-icon tool-icon-shuffle" aria-hidden="true">
+                    <span class="tool-glyph tool-glyph-shuffle">↻</span>
+                  </span>
+                  <span class="skill-copy">重新排列当前盘面</span>
+                  <span class="tool-count" id="toolShuffleCount">2</span>
+                </button>
+              </div>
+
+              <div class="combo-panel">
+                <div class="panel-heading">
+                  <span>连击热度</span>
+                  <strong id="comboMeterText">x1.0</strong>
+                </div>
+                <div class="progress-track combo-track">
+                  <div class="progress-fill combo-fill" id="comboFill"></div>
+                </div>
+                <p class="panel-note" id="comboNotice">连续制造消除可提高倍率，停顿过久热度会下降。</p>
+              </div>
+            </section>
+          </div>
+          <div class="board-overlay hidden" id="boardOverlay">
+            <div class="overlay-card">
+              <h2 id="overlayTitle">表情包消消乐</h2>
+              <p id="overlayDescription"><span class="rule-line">滑动相邻方块，3 个及以上即可消除并得分。</span><span class="rule-line">4 连会生成横扫或纵扫，触发后清一整行或一整列。</span><span class="rule-line">5 连会生成全清块；和任意普通块交换，会清空该类型全部方块；两个全清互换会清全盘。</span><span class="rule-line">T 型、L 型或十字交叉消除会生成爆裂块，触发后清除 3x3 范围。</span><span class="rule-line">第 5 阶开始出现干扰块，会先吸收命中再被打碎：中期 1 次，后期 2 次，无尽后期 3 次。</span><span class="rule-line">连击热度达到 30 / 60 / 85 时，倍率提升到 x1.2 / x1.5 / x2.0；停顿过久热度会下降。</span><span class="rule-line">每阶段都有目标分，达标立刻加时升段；倒计时归零就结束，打穿 15 阶后进入无尽模式。</span></p>
+              <button class="primary-button" id="startButton">开始挑战</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./game.js"></script>
+</body>
+</html>
